@@ -13,7 +13,7 @@ public class Main {
         try{
             path = Paths.get(args[0]).toAbsolutePath();
         }catch(Exception e){
-            path = Paths.get("C:\\Projects\\Java\\Benchmark\\src\\tester.csv");
+            path = Paths.get("tester.csv");
             e.printStackTrace(System.out);
         }
 
@@ -22,7 +22,7 @@ public class Main {
         try {
             BufferedReader csvReader = new BufferedReader(new FileReader(pathSt));
             while ((row = csvReader.readLine()) != null) {
-                String[] line = row.split(",");
+                String[] line = row.split(";");
                 for (int i = 0; i < line.length; i++) {
                     System.out.print(line[i] + " ");
                 }
