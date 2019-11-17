@@ -22,15 +22,20 @@ public class Main {
         String pathSt = path.toString();
 
         int lineCounter = 0;
+
         try {
             BufferedReader csvReader = new BufferedReader(new FileReader(pathSt));
+
             while ((row = csvReader.readLine()) != null) {
                 String[] line = row.split(";");
-                if(debug)
-                for (int i = 0; i < line.length; i++) {
-                    System.out.print(line[i] + " ");
+
+                if(debug) {
+                    for (int i = 0; i < line.length; i++) {
+                        System.out.print(line[i] + " ");
+                    }
+                    System.out.println();
                 }
-                System.out.println();
+
                 if (lineCounter > 0){
                     Launcher launcher = new Launcher(line);
                     launcher.run();
@@ -38,6 +43,7 @@ public class Main {
                 lineCounter++;
             }
             csvReader.close();
+
         }catch (Exception e){
             e.printStackTrace(System.out);
         }
